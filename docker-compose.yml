@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  firebird_origem:
+    image: jacobalberty/firebird:3.0
+    container_name: firebird_origem
+    ports:
+      - "3050:3050"
+    volumes:
+      - ./data/VERSAOATUALIZADA.FDB:/firebird/data/VERSAOATUALIZADA.FDB
+    environment:
+      ISC_PASSWORD: masterkey
+
+  firebird_destino:
+    image: jacobalberty/firebird:3.0
+    container_name: firebird_destino
+    ports:
+      - "3051:3050"
+    volumes:
+      - ./data/VERSAODESATUALIZADA.FDB:/firebird/data/VERSAODESATUALIZADA.FDB
+    environment:
+      ISC_PASSWORD: masterkey
